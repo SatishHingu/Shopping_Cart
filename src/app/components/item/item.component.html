@@ -1,0 +1,50 @@
+<nav  class="navbar navbar-expand-lg navbar-light" style="background-color:skyblue;">
+  <a  class="navbar-brand" href="/">
+    <img  src="./assets/images/1.jpg"  style="width: 40px;">
+  </a>
+  <div class="md-form mt-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+  </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+      <ul class="navbar-nav"><li class="nav-item"><a href="/cart">
+        <img src="./assets/images/2.png" style="width: 30px; margin-left: auto;">
+        <!-- <span class="nav-link active">
+          <span class="min fa-stack fa-2x has-badge" data-count="0">
+            <i class="fa fa-shopping-cart fa-stack-1x"></i>
+          </span>
+        </span> -->
+      </a>
+    </li>
+  </ul>
+</div>
+</nav>
+<div *ngIf="product" class="products">
+  <h2>{{product.name | uppercase}}</h2>
+  <div><span>Id: </span>{{product.id}}</div>
+  <div><span>Name: </span>{{product.name}}</div>
+  <div><span>Price: </span>{{product.price}}</div>
+  <div>
+    <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go back</button>
+  </div>
+</div>
+<!-- <div>
+  <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go back</button>
+  <h3 *ngIf="product">{{product.category}}</h3>
+  <div class="row">
+  </div>
+</div> -->
+<!-- <div class="container-fluid main-container">
+  <div class="row col-12">
+  <main class="col-12 col-md-12 col-xl-12 py-md-3 pl-md-5 bd-content">
+  <div>
+    <div class="container">
+      <div class="card">
+  <div class="container-fliud">
+    <div class="wrapper row">
+  <div class="preview col-md-6">
+  <div class="product-preview-pic tab-content">
+  <div class="tab-pane active" id="pic-1">
+  <img src="{{.photo}}" alt="1">
+  </div>
+  </div>
+  </div> -->

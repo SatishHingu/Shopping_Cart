@@ -1,15 +1,45 @@
 
-<app-header></app-header>
-<div>
-  <!-- <h3>Product Detail</h3> -->
+<nav  class="navbar navbar-expand-lg navbar-light" style="background-color:skyblue;">
+  <a  class="navbar-brand" href="/">
+    <img  src="./assets/images/1.jpg"  style="width: 40px;">
+  </a>
+  <div class="md-form mt-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+  </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="/cart">
+        <img src="./assets/images/2.png" style="width: 30px; margin-left: auto;">
+        <!-- <span class="nav-link active">
+          <span class="min fa-stack fa-2x has-badge" data-count="0">
+            <i class="fa fa-shopping-cart fa-stack-1x"></i>
+          </span>
+        </span> -->
+      </a>
+    </li>
+  </ul>
+</div>
+</nav>
+ <div>
 <div class="row">
-  <div class="col-sm-4" *ngFor="let Product of productdata | async">
+  <div class="col-sm-3" *ngFor="let Product of products let i=index">
     <div class="card">
       <div class="card-body">
+        <a [routerLink]="['/item']" [queryParams]="{ id: Product.id}">
+        <div>
         <img src="{{Product.photo}}" class="img-thumbnail" alt="img" />
+        <h5 class="card-title">{{Product.name}}</h5>
+        <h5 class="Price">{{Product.price}}</h5>
+      </div>
+      </a>
+      <button class="btn btn-info" type="button" id="{{Product.id}}">Add to Cart</button>
       </div>
     </div>
   </div>
 </div>
 </div>
-<app-footer></app-footer>
+
+
+
+
