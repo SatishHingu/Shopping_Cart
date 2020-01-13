@@ -33,8 +33,15 @@
         <h5 class="Price">{{Product.price}}</h5>
       </div>
       </a>
-      <button class="btn btn-info" type="button" id="{{Product.id}}">Add to Cart</button>
+      <button class="btn btn-info" type="button" id="{{Product.id}}" (click)="add()" >Add to Cart</button>
       </div>
+      <!-- <ul class="products">
+        <li *ngFor="let p of products; let i=index;">
+          <a routerLink="/cart/{{products.id}}">
+            <span class="badge">{{i+1}}</span> {{products.name}}
+          </a>
+        </li>
+      </ul> -->
     </div>
   </div>
 </div>

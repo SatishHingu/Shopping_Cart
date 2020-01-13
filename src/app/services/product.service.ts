@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵɵupdateSyntheticHostBinding } from '@angular/core';
 import { Product } from '../models/product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
 
 const headerOption = {
   headers: new HttpHeaders({
@@ -32,5 +31,9 @@ export class ProductService {
   // tslint:disable-next-line: adjacent-overload-signatures
   getItem(id: any): Observable<any> {
     return this.http.get(this.mockUrl + 'products/' + id);
+  }
+  addProduct(product: any): Observable<any> {
+    console.log(product);
+    return this.http.post<any>(this.mockUrl + 'cart', JSON.stringify(product), headerOption);
   }
 }

@@ -18,33 +18,81 @@
   </ul>
 </div>
 </nav>
-<div *ngIf="product" class="products">
+<!-- <div *ngIf="product" class="products">
   <h2>{{product.name | uppercase}}</h2>
+  <img src="{{product.photo}}"/>
   <div><span>Id: </span>{{product.id}}</div>
   <div><span>Name: </span>{{product.name}}</div>
   <div><span>Price: </span>{{product.price}}</div>
   <div>
     <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go back</button>
   </div>
-</div>
-<!-- <div>
-  <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go back</button>
-  <h3 *ngIf="product">{{product.category}}</h3>
-  <div class="row">
+</div> -->
+<!-- <div class="container-fluid main-container">
+  <div class="row col-12">
+    <main class="col-12 col-md-12 col-xl-12 py-md-3 pl-md-5 bd-content"> -->
+      <div>
+        <!-- <div class="container"> -->
+          <div class="card">
+            <div class="container-fliud">
+              <div class="wallpper row">
+                <div class="tab-pane active" id="{{product.id}}">
+                  <img src="{{product.photo}}" class="img-thumbnail" alt="img"/>
+                  <h3 class="product-name">{{product.name}}</h3>
+                  <h2 class="product-titel">{{product.price}}</h2>
+                  <h3 class="product-price">{{product.category}}</h3>
+                  <button routerLink="/cart" class="btn btn-light" style="background-color: #007bff;">Add Cart</button>
+                  <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go Back</button>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="product-details col-md-6">
+              <h3 class="product-name">{{product.name}}</h3>
+              <h2 class="product-titel">{{product.price}}</h2>
+              <h4 class="product-price">{{product.category}}</h4>
+              <div class="action">
+                <button routerLink="/cart" class="btn btn-light" style="background-color: #007bff;">Add Cart</button>
+                <button routerLink="/product" class="btn btn-light" style="background-color: #007bff;">Go Back</button>
+              </div>
+            </div> -->
+          <!-- </div>
+        </div>
+      </div> -->
+    <!-- </main>
   </div>
+
 </div> -->
 <!-- <div class="container-fluid main-container">
   <div class="row col-12">
   <main class="col-12 col-md-12 col-xl-12 py-md-3 pl-md-5 bd-content">
   <div>
-    <div class="container">
-      <div class="card">
+  <div class="container">
+  <div class="card">
   <div class="container-fliud">
-    <div class="wrapper row">
+  <div class="wrapper row">
   <div class="preview col-md-6">
   <div class="product-preview-pic tab-content">
   <div class="tab-pane active" id="pic-1">
-  <img src="{{.photo}}" alt="1">
+  <img src="/static/media/appleIphoneXS.9ceb90d3.png" alt="1">
   </div>
+  </div>
+  </div>
+  <div class="product-details col-md-6">
+  <h3 class="product-title">Apple iPhone Xs Max</h3>
+  <h3 class="product-title">Apple</h3>
+  <p class="product-description">Facial Recognition, Fingerprint Scanner</p>
+  <h4 class="price">current price: <i class="fa fa-usd"
+  ></i> <span>99000 </span>
+</h4><div class="action">
+  <button class="btn btn-info" type="button" id="1">Add to cart</button>
+  </div>
+  <h3 class="product-title">Mobile</h3>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </main>
   </div>
   </div> -->
