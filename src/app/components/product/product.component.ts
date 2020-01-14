@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -10,11 +13,13 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit {
   // productdata: any;
   products: any = [];
-
+  public cartItems$: Observable<Product[]>;
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -27,6 +32,10 @@ export class ProductComponent implements OnInit {
       console.log(data);
       this.products = data;
     });
+    this.cartItems$ = this
+      .cartService.getCarts();
+
+    this.cartItems$.subscribe(_ => _);
   }
 
 }

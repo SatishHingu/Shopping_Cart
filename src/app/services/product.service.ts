@@ -32,8 +32,7 @@ export class ProductService {
   getItem(id: any): Observable<any> {
     return this.http.get(this.mockUrl + 'products/' + id);
   }
-  addProduct(product: any): Observable<any> {
-    console.log(product);
-    return this.http.post<any>(this.mockUrl + 'cart', JSON.stringify(product), headerOption);
+  getCart(id: any): Observable<any> {
+    return this.http.get(this.mockUrl + 'products/' + id);
   }
 }

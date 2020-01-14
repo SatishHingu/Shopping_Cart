@@ -9,6 +9,8 @@ import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemComponent } from './components/item/item.component';
+import { FilterComponent } from './components/filter/filter.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { ItemComponent } from './components/item/item.component';
     FooterComponent,
     ProductComponent,
     CartComponent,
-    ItemComponent
+    ItemComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,

@@ -4,13 +4,14 @@
     <img  src="./assets/images/1.jpg"  style="width: 40px;">
   </a>
   <div class="md-form mt-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+    <input class="form-control mr-sm-2" type="search" ngModel="searchText" autocomplete="off" placeholder="Search">
   </div>
     <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a href="/cart">
         <img src="./assets/images/2.png" style="width: 30px; margin-left: auto;">
+        <i class="fa fa-shopping-cart">{{(cartItems$ | async).length}}</i>
         <!-- <span class="nav-link active">
           <span class="min fa-stack fa-2x has-badge" data-count="0">
             <i class="fa fa-shopping-cart fa-stack-1x"></i>
@@ -33,8 +34,9 @@
         <h5 class="Price">{{Product.price}}</h5>
       </div>
       </a>
-      <button class="btn btn-info" type="button" id="{{Product.id}}" (click)="add()" >Add to Cart</button>
+      <button class="btn btn-info" [routerLink]="['/cart']" type="button" [queryParams]="{ id: Product.id}" id="{{Product.id}}" >Add to Cart</button>
       </div>
+      <!-- <i class="fa fa-shopping-cart">{{(cartItems$ | async).length}}</i> -->
       <!-- <ul class="products">
         <li *ngFor="let p of products; let i=index;">
           <a routerLink="/cart/{{products.id}}">
