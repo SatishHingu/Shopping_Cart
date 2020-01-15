@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-product',
@@ -14,6 +15,7 @@ export class ProductComponent implements OnInit {
   // productdata: any;
   products: any = [];
   public cartItems$: Observable<Product[]>;
+  filters: any;
 
   constructor(
     private productService: ProductService,
@@ -32,10 +34,12 @@ export class ProductComponent implements OnInit {
       console.log(data);
       this.products = data;
     });
-    this.cartItems$ = this
-      .cartService.getCarts();
-
+    this.cartItems$ = this.cartService.getCarts();
+    // tslint:disable-next-line: no-shadowed-variable
     this.cartItems$.subscribe(_ => _);
   }
-
+  getSort(category: any) {
+  console.log(category);
+  this.products =  _.orderBy(this.products, [category], ['asc']);
+  }
 }

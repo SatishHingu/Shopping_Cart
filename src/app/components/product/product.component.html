@@ -22,32 +22,42 @@
   </ul>
 </div>
 </nav>
- <div>
-<div class="row">
-  <div class="col-sm-3" *ngFor="let Product of products let i=index">
-    <div class="card">
-      <div class="card-body">
-        <a [routerLink]="['/item']" [queryParams]="{ id: Product.id}">
-        <div>
-        <img src="{{Product.photo}}" class="img-thumbnail" alt="img" />
-        <h5 class="card-title">{{Product.name}}</h5>
-        <h5 class="Price">{{Product.price}}</h5>
-      </div>
-      </a>
-      <button class="btn btn-info" [routerLink]="['/cart']" type="button" [queryParams]="{ id: Product.id}" id="{{Product.id}}" >Add to Cart</button>
-      </div>
-      <!-- <i class="fa fa-shopping-cart">{{(cartItems$ | async).length}}</i> -->
-      <!-- <ul class="products">
-        <li *ngFor="let p of products; let i=index;">
-          <a routerLink="/cart/{{products.id}}">
-            <span class="badge">{{i+1}}</span> {{products.name}}
-          </a>
-        </li>
-      </ul> -->
-    </div>
-  </div>
-</div>
-</div>
+ <div class="container-fluid main-container">
+   <div class="row col-12">
+     <main class="col-12 col-md-12 col-xl-12 py-md-3 pl-md-5 bd-content">
+       <div>
+         <div class="testClass">
+           <div class="form-group col-md-3" id="productListSort">
+             <label for="Sort By">Sort By</label>
+               <select (change)="getSort($event.target.value)" class="form-control" options="" id="productListSortBy">
+                <option value="name">Name</option>
+                <option value="price">Price</option>
+                <option value="category">Category</option>
+              </select>
+             </div>
+              <div class="row">
+                <div class="col-sm-3" *ngFor="let Product of products let i=index">
+                  <div class="card">
+                   <div class="card-body">
+                     <a [routerLink]="['/item']" [queryParams]="{ id: Product.id }">
+                       <div>
+                        <img src="{{Product.photo}}" class="img-thumbnail" alt="img" />
+                          <h5 class="card-title">{{Product.name}}</h5>
+                          <h5 class="Price">{{Product.price}}</h5>
+                        </div>
+                       </a>
+                       <button class="btn btn-info" [routerLink]="['/cart']" type="button" [queryParams]="{ id: Product.id}" id="{{Product.id}}" >Add to Cart</button>
+                     </div>
+                     <!-- <i class="fa fa-shopping-cart">{{(cartItems$ | async).length}}</i> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+     </main>
+   </div>
+ </div>
+
 
 
 

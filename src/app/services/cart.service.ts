@@ -21,17 +21,10 @@ export class CartService {
   public getCarts(): Observable<Product[]> {
     return this.itemsInCartSubject;
   }
-  // public getTotalAmount(): Observable<number> {
-  //   return this.itemsInCartSubject.map((items: Product[]) => {
-  //     return items.reduce((prev, curr: Product) => {
-  //       return prev + curr.price;
-  //     }, 0);
-  //   });
-  // }
-  // public removeFromCart(item: Product) {
-  //   const currentItems = [...this.itemsInCart];
-  //   const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
-  //   this.itemsInCartSubject.next(itemsWithoutRemoved);
-  // }
+  public removeFromCart(item: Product) {
+    const currentItems = [...this.itemsInCart];
+    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
+    this.itemsInCartSubject.next(itemsWithoutRemoved);
+  }
 
 }
