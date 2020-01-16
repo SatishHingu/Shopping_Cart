@@ -13,6 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class CartComponent implements OnInit {
   public cartItems$: Observable<Product[]> = of([]);
   public cartItems: Product[] = [];
+  totalamount: number;
   // product: any;
 
   constructor(
@@ -21,16 +22,28 @@ export class CartComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    this.cartItems$ = this.cartService.getCarts();
-    this.cartItems$.subscribe(_ => this.cartItems = _);
+
   }
 
   ngOnInit() {
+
+    this.cartItems$ = this.cartService.getCarts();
+    console.log(this.cartItems);
     // console.log(this.route.snapshot);
     // this.productService.getItem(this.route.snapshot.queryParams[`id`]).subscribe((data: {}) => {
     //   console.log(data);
     //   this.product = data;
     // });
   }
+//   getTotal() {
+//     let total = 0;
+//     for (var i = 0; i < this.cartItems.length; i++) {
+//         if (this.cartItems$[i].Price) {
+//           total += this.cartItems$[i].Price * this.cartItems$[i].Quantity;
+//           this.totalamount = total;
+//         }
+//     }
+//     return total;
+// }
 
 }

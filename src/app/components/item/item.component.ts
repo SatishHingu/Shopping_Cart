@@ -14,7 +14,7 @@ export class ItemComponent implements OnInit {
   // itemData: any;
   // id: any;
   product: any;
-  public cartItems$: Observable<Product[]>;
+  public cartItems: Observable<Product[]>;
 
   constructor(
     private productService: ProductService,
@@ -29,10 +29,9 @@ export class ItemComponent implements OnInit {
       console.log(data);
       this.product = data;
     });
-    this.cartItems$ = this
-      .cartService.getCarts();
+    this.cartItems = this.cartService.getCarts();
 
-    this.cartItems$.subscribe(_ => _);
+    this.cartItems.subscribe(_ => _);
   }
   }
 

@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  mockUrl = 'http://localhost:3000/';
+  public productdata: any;
   private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
   private itemsInCart: Product[] = [];
 
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
 
@@ -18,13 +23,18 @@ export class CartService {
     this.itemsInCartSubject.next([...this.itemsInCart, item]);
   }
 
-  public getCarts(): Observable<Product[]> {
-    return this.itemsInCartSubject;
+  getProduct(): Observable<any> {
+    return this.http.get(this.mockUrl + 'products');
   }
-  public removeFromCart(item: Product) {
-    const currentItems = [...this.itemsInCart];
-    const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
-    this.itemsInCartSubject.next(itemsWithoutRemoved);
+  public getCarts(): Observable<any> {
+    return this.http.get(this.mockUrl + 'cartItems/');
   }
-
+  // public removeFromCart(item: Product) {
+  //   const currentItems = [...this.itemsInCart];
+  //   const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
+  //   this.itemsInCartSubject.next(itemsWithoutRemoved);
+  // }
+  getCart(id: any): Observable<any> {
+    return this.http.get(this.mockUrl + 'products/' + id);
+  }
 }

@@ -35,4 +35,7 @@ export class ProductService {
   getCart(id: any): Observable<any> {
     return this.http.get(this.mockUrl + 'products/' + id);
   }
+  // addToCart(item: Product): Observable<any> {
+  //   this.itemsInCartSubject.next([...this.itemsInCart, item]);
+  // }
 }

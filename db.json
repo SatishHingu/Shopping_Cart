@@ -139,13 +139,16 @@
       "price": "$450",
       "category": "Headphone",
       "photo": "./assets/shopping/18.png"
-    },
-    {
-      "id": 19,
-      "name": "BOSS_M4589",
-      "price": "$650",
-      "category": "Headphone",
-      "photo": "./assets/shopping/19.png"
     }
-  ]
+  ],
+  "cartItems":[ {
+
+        "id": 19,
+        "name": "BOSS_M4589",
+        "price": "$650",
+        "category": "Headphone",
+        "photo": "./assets/shopping/19.png"
+
+  }]
+
 }
