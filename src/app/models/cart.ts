@@ -6,10 +6,10 @@ export class Cart {
   total: number;
 }
 
-export function createCartItem(params: Partial<Cart>) {
-  return {
-    total: 0,
-    quantity: 1,
-    ...params
-  } as Cart;
-}
+// export function createCartItem(params: Partial<Cart>) {
+//   return {
+//     total: 0,
+//     quantity: 1,
+//     ...params
+//   } as Cart;
+// }

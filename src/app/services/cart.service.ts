@@ -7,25 +7,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CartService {
+
   mockUrl = 'http://localhost:3000/';
-  public productdata: any;
-  private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
-  private itemsInCart: Product[] = [];
+  public products: any;
+  // private itemsInCartSubject: BehaviorSubject<Product[]> = new BehaviorSubject([]);
+  // private itemsInCart: Product[] = [];
 
 
   constructor(
     private http: HttpClient
   ) {
-    this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
+    // this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
 
-  public addToCart(item: Product) {
-    this.itemsInCartSubject.next([...this.itemsInCart, item]);
-  }
+  // public addToCart(item: Product) {
+  //   this.itemsInCartSubject.next([...this.itemsInCart, item]);
+  // }
 
-  getProduct(): Observable<any> {
-    return this.http.get(this.mockUrl + 'products');
-  }
+  // getProduct(): Observable<any> {
+  //   return this.http.get(this.mockUrl + 'products');
+  // }
   public getCarts(): Observable<any> {
     return this.http.get(this.mockUrl + 'cartItems/');
   }
@@ -34,7 +35,7 @@ export class CartService {
   //   const itemsWithoutRemoved = currentItems.filter(_ => _.id !== item.id);
   //   this.itemsInCartSubject.next(itemsWithoutRemoved);
   // }
-  getCart(id: any): Observable<any> {
-    return this.http.get(this.mockUrl + 'products/' + id);
-  }
+  // getCart(id: any): Observable<any> {
+  //   return this.http.get(this.mockUrl + 'products/' + id);
+  // }
 }

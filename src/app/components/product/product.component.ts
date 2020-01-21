@@ -46,4 +46,9 @@ export class ProductComponent implements OnInit {
     this.products =  _.filter(this.products, ['name' , data]);
     console.log( this.products);
     }
+    addToCart(cartItems: Product) {
+      this.productService.productdata = cartItems;
+      this.products = this.productService.productdata;
+      this.products = true;
+  }
 }

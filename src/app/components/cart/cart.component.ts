@@ -13,8 +13,8 @@ import { ProductService } from 'src/app/services/product.service';
 export class CartComponent implements OnInit {
   public cartItems$: Observable<Product[]> = of([]);
   public cartItems: Product[] = [];
-  totalamount: number;
-  // product: any;
+  // totalamount: number;
+  product: any;
 
   constructor(
     private cartService: CartService,
@@ -35,15 +35,15 @@ export class CartComponent implements OnInit {
     //   this.product = data;
     // });
   }
-//   getTotal() {
-//     let total = 0;
-//     for (var i = 0; i < this.cartItems.length; i++) {
-//         if (this.cartItems$[i].Price) {
-//           total += this.cartItems$[i].Price * this.cartItems$[i].Quantity;
-//           this.totalamount = total;
-//         }
-//     }
-//     return total;
+//   addToCart(cartItems: Product) {
+//     this.productService.productdata = cartItems;
+//     this.product = this.productService.productdata;
+//     this.product = true;
 // }
+getcarts() {
+  this.cartService.products.subscribe(() => {
+    this.cartItems = this.productService.productdata;
+  });
+}
 
 }
