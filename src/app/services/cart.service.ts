@@ -19,6 +19,31 @@ export class CartService {
   ) {
     // this.itemsInCartSubject.subscribe(_ => this.itemsInCart = _);
   }
+  add(product: any) {
+
+    this.products.push(product);
+}
+
+remove(index: number) {
+
+    if (index > -1) {
+        this.products.splice(index, 1);
+    }
+
+}
+
+clear() {
+
+    this.products = [];
+
+}
+
+get() {
+
+  return this.products;
+
+}
+
 
   // public addToCart(item: Product) {
   //   this.itemsInCartSubject.next([...this.itemsInCart, item]);

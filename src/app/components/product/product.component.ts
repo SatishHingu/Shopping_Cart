@@ -47,8 +47,14 @@ export class ProductComponent implements OnInit {
     console.log( this.products);
     }
     addToCart(cartItems: Product) {
-      this.productService.productdata = cartItems;
-      this.products = this.productService.productdata;
-      this.products = true;
-  }
+
+      console.log(this.products);
+      this.cartService.add(this.products);
+
+    }
+  //   addToCart(cartItems: Product) {
+  //     this.productService.productdata = cartItems;
+  //     this.products = this.productService.productdata;
+  //     this.products = true;
+  // }
 }

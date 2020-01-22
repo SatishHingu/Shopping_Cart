@@ -23,7 +23,7 @@
                           <h5 class="Price">{{Product.price}}</h5>
                         </div>
                        </a>
-                       <button class="btn btn-info" [routerLink]="['/cart']" type="button" (click)="addToCart()" id="{{Product.id}}" >Add to Cart</button>
+                       <button class="btn btn-info" [routerLink]="['/cart']" type="button" (click)="addToCart(products)" id="{{Product.id}}" >Add to Cart</button>
                      </div>
                      <!-- <i class="fa fa-shopping-cart">{{(cartItems$ | async).length}}</i> -->
                   </div>
